@@ -1,23 +1,19 @@
 ﻿using System;
 
-namespace clubMemberIndexer
+namespace GenericAnimalClass
 {
-    public class ClubMembers
+    public class Animal<T>
     {
-        public const int Size = 15;
-        private string[] Members = new string[Size];
-        public string ClubType { get; set; }
-        public string ClubLocation { get; set; }
-        public string MeetingDate { get; set; }
+        private T data;
 
-        // constructor
-        public ClubMembers() { }
-
-        //indexer get and set methods
-        public string this[int index]
+        public Animal(T data)
         {
-            get { return Members[index]; }
-            set { Members[index] = value; }
+            this.data = data;
+        }
+
+        public T getAnimal()
+        {
+            return data;
         }
     }
 
@@ -25,26 +21,17 @@ namespace clubMemberIndexer
     {
         static void Main(string[] args)
         {
-            ClubMembers club = new ClubMembers();
-            club[0] = "Dylan Miller";
-            club[1] = "Mylan Diller";
-            club[2] = "Dilan Myler";
-            club[3] = "Myldin Dyler";
-            club[ClubMembers.Size - 1] = "Millen Dylar";
-            club.ClubType = "Homework Club";
-            club.ClubLocation = "Innovation Center";
-            club.MeetingDate = "Every Monday at 4 PM";
-            Console.WriteLine("Club Type: " + club.ClubType);
-            Console.WriteLine("Club Location: " + club.ClubLocation);
-            Console.WriteLine("Meeting Date: " + club.MeetingDate);
-            Console.WriteLine("Members:");
-            for (int i = 0; i < ClubMembers.Size; i++)
-            {
-                if (club[i] != null)
-                {
-                    Console.WriteLine(club[i]);
-                }
-            }
+            Animal<string> animalName = new Animal<string>("Sea Turtle");
+            Animal<string> animalHabitat = new Animal<string>("Ocean");
+            Animal<bool> endangered = new Animal<bool>(false);
+            Animal<bool> extinct = new Animal<bool>(false);
+            Animal<int> averageLifespan = new Animal<int>(15);
+
+            Console.WriteLine("Animal Name: " + animalName.getAnimal());
+            Console.WriteLine("Habitat: " + animalHabitat.getAnimal());
+            Console.WriteLine("Endangered: " + endangered.getAnimal());
+            Console.WriteLine("Extinct: " + extinct.getAnimal());
+            Console.WriteLine("Average Lifespan: " + averageLifespan.getAnimal() + " years");
         }
     }
 }

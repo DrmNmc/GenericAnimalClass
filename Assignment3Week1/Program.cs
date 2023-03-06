@@ -1,16 +1,50 @@
-﻿public record Bookstore(int ID, string Title, string Author, double Price);
+﻿using System;
 
-class Program
+namespace clubMemberIndexer
 {
-    static void Main(string[] args)
+    public class ClubMembers
     {
-        Bookstore book1 = new Bookstore(1, "The Hunger Games", "Suzanne Collins", 7.99);
-        Bookstore book2 = new Bookstore(2, "The Girl on the Train", "Paula Hawkins", 10.99);
-        Bookstore book3 = new Bookstore(3, "The Nightingale", "Kristin Hannah", 11.99);
+        public const int Size = 15;
+        private string[] Members = new string[Size];
+        public string ClubType { get; set; }
+        public string ClubLocation { get; set; }
+        public string MeetingDate { get; set; }
 
+        // constructor
+        public ClubMembers() { }
 
-        Console.WriteLine($"Book 1 - ID: {book1.ID}, Title: {book1.Title}, Author: {book1.Author}, Price: {book1.Price}");
-        Console.WriteLine($"Book 2 - ID: {book2.ID}, Title: {book2.Title}, Author: {book2.Author}, Price: {book2.Price}");
-        Console.WriteLine($"Book 3 - ID: {book3.ID}, Title: {book3.Title}, Author: {book3.Author}, Price: {book3.Price}");
+        //indexer get and set methods
+        public string this[int index]
+        {
+            get { return Members[index]; }
+            set { Members[index] = value; }
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ClubMembers club = new ClubMembers();
+            club[0] = "Dylan Miller";
+            club[1] = "Mylan Diller";
+            club[2] = "Dilan Myler";
+            club[3] = "Myldin Dyler";
+            club[ClubMembers.Size - 1] = "Millen Dylar";
+            club.ClubType = "Homework Club";
+            club.ClubLocation = "Innovation Center";
+            club.MeetingDate = "Every Monday at 4 PM";
+            Console.WriteLine("Club Type: " + club.ClubType);
+            Console.WriteLine("Club Location: " + club.ClubLocation);
+            Console.WriteLine("Meeting Date: " + club.MeetingDate);
+            Console.WriteLine("Members:");
+            for (int i = 0; i < ClubMembers.Size; i++)
+            {
+                if (club[i] != null)
+                {
+                    Console.WriteLine(club[i]);
+                }
+            }
+        }
     }
 }

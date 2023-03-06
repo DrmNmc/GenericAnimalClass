@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment3Week1.2", "Assignment3Week1\Assignment3Week1.2.csproj", "{48A8ED75-2841-4008-BE91-836EEBABA245}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "immutableID", "Assignment3Week1\immutableID.csproj", "{48A8ED75-2841-4008-BE91-836EEBABA245}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
